@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloakScan - Your Privacy Sentinel</title>
+  <meta name="description" content="A cutting-edge, zero-log privacy checker for various metrics.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CloakScan</h1>
+    <p>Your Privacy Sentinel - 100% client-side. No logs. No tracking.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>IP Information</h2>
+      <div id="ip-info">
+        <button id="detect-ip">Detect My IP Addresses</button>
+        <p id="public-ip"></p>
+        <div id="local-ips"></div>
+        <p><em>Note: Detection may not work in all browsers without STUN servers.</em></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Geolocation</h2>
+      <div id="geo-info">
+        <button id="detect-geo">Get My Location</button>
+        <p id="geo-results"></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>DNS Leak Information</h2>
+      <div id="dns-info">
+        <p>
+          A DNS leak occurs when your DNS queries bypass your VPN, potentially exposing your activity to your ISP.
+          Since this tool runs entirely in your browser with no server interaction or logging, it cannot perform a true DNS leak test (which requires seeing your DNS resolver). However:
+        </p>
+        <ul>
+          <li>If your <strong>Public IP</strong> (above) matches your real IP while on a VPN, it might indicate a leak.</li>
+          <li>For a thorough test, try external tools like <a href="https://dnsleaktest.com/" target="_blank">DNSLeakTest.com</a>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>WebRTC Leak Information</h2>
+      <div id="webrtc-info">
+        <p>
+          WebRTC can expose your real IP address even behind a VPN. To prevent leaks:
+        </p>
+        <ul>
+          <li>Use extensions like <a href="https://chrome.google.com/webstore/detail/webrtc-leak-shield/ggnfneofapgfnhahpbcdegifehoebnej" target="_blank">WebRTC Leak Shield</a> (Chrome).</li>
+          <li>Disable WebRTC in your browser settings (e.g., Firefox: <code>about:config</code> → <code>media.peerconnection.enabled</code> to <code>false</code>).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Browser Fingerprint</h2>
+      <div id="fingerprint-info">
+        <button id="show-fingerprint">Show My Browser Details</button>
+        <div id="fingerprint-details"></div>
+        <p>
+          Your browser fingerprint is a unique set of data that can track you across sites. Reduce it with privacy browsers (e.g., Tor) or extensions that spoof values.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Cookie and Local Storage Check</h2>
+      <div id="storage-info">
+        <button id="check-storage">Check Storage</button>
+        <p id="storage-results"></p>
+        <p><em>This tool does not set cookies or use local storage.</em></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Third-Party Requests</h2>
+      <div id="third-party-info">
+        <button id="check-third-party">Check Requests</button>
+        <p id="third-party-results"></p>
+        <p><em>This page should not make third-party requests.</em></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Security Headers Information</h2>
+      <div id="headers-info">
+        <p>Important security headers include:</p>
+        <ul>
+          <li><strong>Content-Security-Policy</strong>: Limits resource origins.</li>
+          <li><strong>Strict-Transport-Security</strong>: Enforces HTTPS.</li>
+          <li><strong>X-Frame-Options</strong>: Prevents clickjacking.</li>
+          <li><strong>X-Content-Type-Options</strong>: Stops MIME sniffing.</li>
+          <li><strong>Referrer-Policy</strong>: Controls referrer data.</li>
+        </ul>
+        <p>Check headers using your browser's developer tools (F12 → Network).</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>VPN/Proxy Information</h2>
+      <div id="vpn-info">
+        <p>
+          VPNs and proxies mask your IP address. Ensure proper configuration to avoid leaks (e.g., DNS, WebRTC).
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
